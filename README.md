@@ -1,11 +1,11 @@
-# Where the ISS API Automation
+# Where the ISS API Automation with Behave
 
 Using the [wheretheiss](https://wheretheiss.at/w/developer) service, you can get current, past, or future position of the ISS, get timezone information about a set of coordinates, and also get TLE data on the ISS.
 
-In this automation project, I'm using Python + Pytest (test framework) + Requests (lib).
+In this automation project, I'm using Python + Behave (bdd test framework) + Requests (lib).
 
 ## Tests
-13 automated test cases were created for the following endpoints:
+automated test cases were created for the following endpoints:
 - **satellites/[id]** 
 - **satellites/[id]/positions** 
 - **satellites** 
@@ -28,7 +28,7 @@ In this automation project, I'm using Python + Pytest (test framework) + Request
 Clone this repository and navigate to the root folder
 
 ```bash
-git clone https://github.com/marlonrochaeng/wheretheissNoBDD.git 
+git clone https://github.com/marlonrochaeng/wheretheissWithBDD.git 
 ```
 
 Create a virtualenv and activate it
@@ -50,23 +50,25 @@ pip install -r requirements.txt
 If you want to run all of the tests:
 
 ```bash
-pytest
+behave
 ```
-If you want to run one test:
+If you want to run one test by tag:
 ```bash
-pytest tests\test_name.py
+behave --tags=tagName
 ```
 
 If you want to generate a html report:
 ```bash
-pytest --html=report.html 
+behave -f html -o behave-report.html
+```
+
+If you want to see an Allure Report, install Allure Framework in your machine then run:
+```bash
+behave -f allure_behave.formatter:AllureFormatter -o %allure_result_folder% ./features
+```
+and
+```bash
+allure serve %allure_result_folder%
 ```
 The result will be like:
-![alt text](https://blog.cedrotech.com/hs-fs/hubfs/Imported_Blog_Media/image15-2.png?width=974&height=497&name=image15-2.png)
-(source: One of my articles)
-
-If you want to run the tests in parallel:
-```bash
-pytest -n <num_of_cpus>
-```
-By default, pytest runs tests in sequential order (alphabetical). In some scenarios, the test suite can have a great number of tests and this can lead to a large execution time. To overcome this, we can use pytest-xdist to run tests in parallel.
+![alt text](https://github.com/marlonrochaeng/wheretheissWithBDD/blob/main/allure_behave.png?raw=true)
