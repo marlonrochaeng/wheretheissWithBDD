@@ -5,3 +5,4 @@ __pycache__/
 venv/
 assets/
 report.html
+%allure_result_folder%/
