@@ -1,4 +1,4 @@
-# Where the ISS API Automation with Behave
+# Where the ISS at API Automation with Behave
 
 Using the [wheretheiss](https://wheretheiss.at/w/developer) service, you can get current, past, or future position of the ISS, get timezone information about a set of coordinates, and also get TLE data on the ISS.
 
