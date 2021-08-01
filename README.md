@@ -47,7 +47,7 @@ pip install -r requirements.txt
 
 ## Usage
 
-If you want to run all of the tests:
+If you want to run all tests:
 
 ```bash
 behave
@@ -70,5 +70,5 @@ and
 ```bash
 allure serve %allure_result_folder%
 ```
-The result will be like:
+The result will look like:
 ![alt text](https://github.com/marlonrochaeng/wheretheissWithBDD/blob/main/allure_behave.png?raw=true)
